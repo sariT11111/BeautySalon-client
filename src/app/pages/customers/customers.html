@@ -1,0 +1,191 @@
+<div class="customers-page">
+
+  <div class="page-header">
+    <div>
+      <p class="eyebrow">BEAUTY SALON</p>
+      <h1>Customer Management</h1>
+      <p class="subtitle">
+        Manage your salon customers in one beautiful place.
+      </p>
+    </div>
+
+    <div class="customer-count">
+      <span>{{ customers.length }}</span>
+      <small>Customers</small>
+    </div>
+  </div>
+
+  @if (successMessage) {
+    <div class="alert success">{{ successMessage }}</div>
+  }
+
+  @if (errorMessage) {
+    <div class="alert error">{{ errorMessage }}</div>
+  }
+
+  <div class="content-grid">
+
+    <section class="form-card">
+      <div class="card-title">
+        <div>
+          <h2>{{ editingId === null ? 'Add Customer' : 'Edit Customer' }}</h2>
+          <p>
+            {{
+              editingId === null
+                ? 'Create a new salon customer.'
+                : 'Update customer information.'
+            }}
+          </p>
+        </div>
+
+        <div class="icon-circle">✨</div>
+      </div>
+
+      <form (ngSubmit)="saveCustomer()">
+
+        <div class="field">
+          <label>Full Name</label>
+          <input
+            type="text"
+            name="fullName"
+            [(ngModel)]="form.fullName"
+            placeholder="Enter customer name"
+          />
+        </div>
+
+        <div class="field">
+          <label>Phone</label>
+          <input
+            type="text"
+            name="phone"
+            [(ngModel)]="form.phone"
+            placeholder="09XXXXXXXX"
+          />
+        </div>
+
+        <div class="field">
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="form.email"
+            placeholder="customer@example.com"
+          />
+        </div>
+
+        <div class="form-actions">
+          <button class="primary-btn" type="submit">
+            {{ editingId === null ? 'Add Customer' : 'Save Changes' }}
+          </button>
+
+          @if (editingId !== null) {
+            <button
+              class="secondary-btn"
+              type="button"
+              (click)="resetForm()">
+              Cancel
+            </button>
+          }
+        </div>
+
+      </form>
+    </section>
+
+    <section class="table-card">
+
+      <div class="card-title">
+        <div>
+          <h2>Customers</h2>
+          <p>All registered salon customers.</p>
+        </div>
+
+        <button
+          class="refresh-btn"
+          type="button"
+          (click)="loadCustomers()">
+          ↻ Refresh
+        </button>
+      </div>
+
+      @if (loading) {
+
+        <div class="empty-state">
+          <div class="loader"></div>
+          <p>Loading customers...</p>
+        </div>
+
+      } @else if (customers.length === 0) {
+
+        <div class="empty-state">
+          <div class="empty-icon">👩‍🦰</div>
+          <h3>No customers yet</h3>
+          <p>Add your first customer using the form.</p>
+        </div>
+
+      } @else {
+
+        <div class="table-wrapper">
+
+          <table>
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              @for (customer of customers; track customer.id) {
+                <tr>
+
+                  <td>
+                    <div class="customer-info">
+                      <div class="avatar">
+                        {{ customer.fullName.charAt(0).toUpperCase() }}
+                      </div>
+
+                      <div>
+                        <strong>{{ customer.fullName }}</strong>
+                        <span>#{{ customer.id }}</span>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>{{ customer.phone }}</td>
+
+                  <td>{{ customer.email || 'No email' }}</td>
+
+                  <td>
+                    <div class="actions">
+
+                      <button
+                        class="edit-btn"
+                        type="button"
+                        (click)="editCustomer(customer)">
+                        Edit
+                      </button>
+
+                      <button
+                        class="delete-btn"
+                        type="button"
+                        (click)="deleteCustomer(customer.id)">
+                        Delete
+                      </button>
+
+                    </div>
+                  </td>
+
+                </tr>
+              }
+            </tbody>
+          </table>
+
+        </div>
+      }
+
+    </section>
+
+  </div>
+</div>
