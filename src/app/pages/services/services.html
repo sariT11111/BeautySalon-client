@@ -1,0 +1,146 @@
+<div class="services-page">
+
+  <div class="page-header">
+    <div>
+      <span class="eyebrow">BEAUTY SALON</span>
+      <h1>Services</h1>
+      <p>Manage the beauty services offered by your salon.</p>
+    </div>
+
+    <div class="service-count">
+      <strong>{{ services.length }}</strong>
+      <span>Services</span>
+    </div>
+  </div>
+
+  <section class="form-card">
+
+    <div class="card-heading">
+      <div>
+        <h2>Add Service</h2>
+        <p>Create a new salon service.</p>
+      </div>
+
+      <div class="sparkle">✨</div>
+    </div>
+
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label>Service Name</label>
+        <input
+          type="text"
+          [(ngModel)]="newService.name"
+          placeholder="e.g. Hair Styling">
+      </div>
+
+      <div class="form-group">
+        <label>Category</label>
+        <input
+          type="text"
+          [(ngModel)]="newService.category"
+          placeholder="e.g. Hair">
+      </div>
+
+      <div class="form-group">
+        <label>Price (ETB)</label>
+        <input
+          type="number"
+          [(ngModel)]="newService.price"
+          min="0"
+          placeholder="500">
+      </div>
+
+      <div class="form-group">
+        <label>Duration (minutes)</label>
+        <input
+          type="number"
+          [(ngModel)]="newService.durationMinutes"
+          min="1"
+          placeholder="60">
+      </div>
+
+    </div>
+
+    <button class="add-button" (click)="addService()">
+      + Add Service
+    </button>
+
+    <p class="success" *ngIf="message">
+      {{ message }}
+    </p>
+
+    <p class="error" *ngIf="error">
+      {{ error }}
+    </p>
+
+  </section>
+
+  <section class="list-section">
+
+    <div class="section-header">
+      <div>
+        <h2>Salon Services</h2>
+        <p>All services currently available.</p>
+      </div>
+
+      <button class="refresh-button" (click)="loadServices()">
+        ↻ Refresh
+      </button>
+    </div>
+
+    <div *ngIf="loading" class="loading">
+      Loading services...
+    </div>
+
+    <div
+      *ngIf="!loading && services.length === 0"
+      class="empty">
+
+      <div class="empty-icon">💇‍♀️</div>
+
+      <h3>No services yet</h3>
+
+      <p>Add your first salon service above.</p>
+
+    </div>
+
+    <div
+      class="service-grid"
+      *ngIf="!loading && services.length > 0">
+
+      <div
+        class="service-card"
+        *ngFor="let service of services">
+
+        <div class="service-icon">
+          ✨
+        </div>
+
+        <div class="service-info">
+
+          <span class="category">
+            {{ service.category }}
+          </span>
+
+          <h3>{{ service.name }}</h3>
+
+          <div class="details">
+            <span>
+              ⏱ {{ service.durationMinutes }} min
+            </span>
+
+            <strong>
+              {{ service.price }} ETB
+            </strong>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

@@ -1,0 +1,272 @@
+.services-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: linear-gradient(135deg, #fff7fb, #f8f3ff);
+  color: #27213d;
+}
+
+/* Header */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.eyebrow {
+  color: #d62c86;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+h1 {
+  margin: 8px 0;
+  font-size: 48px;
+  font-family: Georgia, serif;
+}
+
+.page-header p {
+  margin: 0;
+  color: #746d82;
+  font-size: 17px;
+}
+
+.service-count {
+  width: 130px;
+  height: 130px;
+  border-radius: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: linear-gradient(135deg, #8a3ffc, #d62c86);
+  box-shadow: 0 15px 30px rgba(130, 60, 200, 0.2);
+}
+
+.service-count strong {
+  font-size: 42px;
+}
+
+.service-count span {
+  font-size: 14px;
+}
+
+/* Form */
+
+.form-card,
+.list-section {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 28px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 15px 40px rgba(80, 50, 100, 0.08);
+}
+
+.card-heading,
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+h2 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 28px;
+}
+
+.card-heading p,
+.section-header p {
+  margin: 7px 0 0;
+  color: #81798d;
+}
+
+.sparkle {
+  width: 55px;
+  height: 55px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff0f8;
+  font-size: 25px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+}
+
+.form-group input {
+  padding: 16px;
+  border: 1px solid #eadcea;
+  border-radius: 15px;
+  outline: none;
+  font-size: 15px;
+  background: #fff;
+}
+
+.form-group input:focus {
+  border-color: #a13df0;
+  box-shadow: 0 0 0 3px rgba(161, 61, 240, 0.08);
+}
+
+.add-button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 16px;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(90deg, #8439ef, #d32683);
+}
+
+.add-button:hover {
+  transform: translateY(-1px);
+}
+
+/* Messages */
+
+.success {
+  margin-top: 15px;
+  color: #198754;
+  font-weight: 600;
+}
+
+.error {
+  margin-top: 15px;
+  color: #dc3545;
+  font-weight: 600;
+}
+
+/* List */
+
+.refresh-button {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #f6eef9;
+  color: #6d287d;
+  font-weight: 600;
+}
+
+.loading,
+.empty {
+  text-align: center;
+  padding: 50px;
+  color: #81798d;
+}
+
+.empty-icon {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+/* Service cards */
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.service-card {
+  display: flex;
+  gap: 18px;
+  padding: 22px;
+  border: 1px solid #f0e4f1;
+  border-radius: 22px;
+  background: #fff;
+  transition: 0.2s;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(80, 50, 100, 0.1);
+}
+
+.service-icon {
+  min-width: 55px;
+  height: 55px;
+  border-radius: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff0f8;
+  font-size: 23px;
+}
+
+.category {
+  color: #c12b7d;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.service-info h3 {
+  margin: 5px 0 12px;
+  font-family: Georgia, serif;
+  font-size: 21px;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: #777080;
+}
+
+.details strong {
+  color: #8a32c8;
+}
+
+/* Responsive */
+
+@media (max-width: 800px) {
+  .services-page {
+    padding: 20px;
+  }
+
+  .page-header {
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .service-count {
+    width: 90px;
+    height: 90px;
+  }
+
+  .service-count strong {
+    font-size: 30px;
+  }
+
+  .form-grid,
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+}
