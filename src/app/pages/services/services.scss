@@ -1,16 +1,24 @@
+/* =========================
+   SERVICES PAGE
+========================= */
+
 .services-page {
   min-height: 100vh;
-  padding: 40px;
+  padding: clamp(20px, 4vw, 40px);
+  box-sizing: border-box;
   background: linear-gradient(135deg, #fff7fb, #f8f3ff);
   color: #27213d;
 }
 
-/* Header */
+/* =========================
+   HEADER
+========================= */
 
 .page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 30px;
   margin-bottom: 30px;
 }
 
@@ -23,19 +31,21 @@
 
 h1 {
   margin: 8px 0;
-  font-size: 48px;
   font-family: Georgia, serif;
+  font-size: clamp(34px, 5vw, 48px);
+  line-height: 1.1;
 }
 
 .page-header p {
   margin: 0;
   color: #746d82;
-  font-size: 17px;
+  font-size: clamp(14px, 2vw, 17px);
 }
 
 .service-count {
-  width: 130px;
-  height: 130px;
+  flex-shrink: 0;
+  width: clamp(90px, 12vw, 130px);
+  height: clamp(90px, 12vw, 130px);
   border-radius: 35px;
   display: flex;
   flex-direction: column;
@@ -47,20 +57,24 @@ h1 {
 }
 
 .service-count strong {
-  font-size: 42px;
+  font-size: clamp(28px, 4vw, 42px);
 }
 
 .service-count span {
   font-size: 14px;
 }
 
-/* Form */
+/* =========================
+   MAIN CARDS
+========================= */
 
 .form-card,
 .list-section {
+  width: 100%;
+  box-sizing: border-box;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 28px;
-  padding: 30px;
+  padding: clamp(20px, 3vw, 30px);
   margin-bottom: 30px;
   box-shadow: 0 15px 40px rgba(80, 50, 100, 0.08);
 }
@@ -70,13 +84,14 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
   margin-bottom: 25px;
 }
 
 h2 {
   margin: 0;
   font-family: Georgia, serif;
-  font-size: 28px;
+  font-size: clamp(23px, 3vw, 28px);
 }
 
 .card-heading p,
@@ -86,6 +101,7 @@ h2 {
 }
 
 .sparkle {
+  flex-shrink: 0;
   width: 55px;
   height: 55px;
   border-radius: 18px;
@@ -96,9 +112,13 @@ h2 {
   font-size: 25px;
 }
 
+/* =========================
+   FORM
+========================= */
+
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -106,6 +126,7 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-width: 0;
 }
 
 .form-group label {
@@ -113,6 +134,8 @@ h2 {
 }
 
 .form-group input {
+  width: 100%;
+  box-sizing: border-box;
   padding: 16px;
   border: 1px solid #eadcea;
   border-radius: 15px;
@@ -137,13 +160,16 @@ h2 {
   font-weight: 700;
   cursor: pointer;
   background: linear-gradient(90deg, #8439ef, #d32683);
+  transition: 0.2s;
 }
 
 .add-button:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
-/* Messages */
+/* =========================
+   MESSAGES
+========================= */
 
 .success {
   margin-top: 15px;
@@ -157,9 +183,12 @@ h2 {
   font-weight: 600;
 }
 
-/* List */
+/* =========================
+   SERVICE LIST
+========================= */
 
 .refresh-button {
+  flex-shrink: 0;
   border: none;
   padding: 10px 16px;
   border-radius: 12px;
@@ -172,7 +201,7 @@ h2 {
 .loading,
 .empty {
   text-align: center;
-  padding: 50px;
+  padding: 50px 20px;
   color: #81798d;
 }
 
@@ -181,17 +210,21 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* Service cards */
+/* =========================
+   SERVICE CARDS
+========================= */
 
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }
 
 .service-card {
   display: flex;
+  align-items: flex-start;
   gap: 18px;
+  min-width: 0;
   padding: 22px;
   border: 1px solid #f0e4f1;
   border-radius: 22px;
@@ -205,7 +238,8 @@ h2 {
 }
 
 .service-icon {
-  min-width: 55px;
+  flex-shrink: 0;
+  width: 55px;
   height: 55px;
   border-radius: 17px;
   display: flex;
@@ -213,6 +247,11 @@ h2 {
   justify-content: center;
   background: #fff0f8;
   font-size: 23px;
+}
+
+.service-info {
+  min-width: 0;
+  flex: 1;
 }
 
 .category {
@@ -226,47 +265,109 @@ h2 {
 .service-info h3 {
   margin: 5px 0 12px;
   font-family: Georgia, serif;
-  font-size: 21px;
+  font-size: clamp(18px, 2vw, 21px);
+  overflow-wrap: anywhere;
 }
 
 .details {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
   color: #777080;
+  font-size: 14px;
 }
 
 .details strong {
   color: #8a32c8;
+  white-space: nowrap;
 }
 
-/* Responsive */
+/* =========================
+   TABLET
+========================= */
 
-@media (max-width: 800px) {
-  .services-page {
-    padding: 20px;
+@media (max-width: 1100px) {
+  .service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
 
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
   .page-header {
     align-items: flex-start;
     gap: 20px;
   }
 
-  h1 {
-    font-size: 36px;
-  }
-
-  .service-count {
-    width: 90px;
-    height: 90px;
-  }
-
-  .service-count strong {
-    font-size: 30px;
-  }
-
   .form-grid,
   .service-grid {
     grid-template-columns: 1fr;
+  }
+
+  .card-heading,
+  .section-header {
+    align-items: flex-start;
+  }
+
+  .service-card {
+    padding: 18px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 450px) {
+  .services-page {
+    padding: 15px;
+  }
+
+  .page-header {
+    flex-direction: column;
+  }
+
+  .service-count {
+    width: 100%;
+    height: 80px;
+    border-radius: 20px;
+  }
+
+  .service-count strong {
+    font-size: 28px;
+  }
+
+  .form-card,
+  .list-section {
+    border-radius: 20px;
+    padding: 18px;
+  }
+
+  .card-heading,
+  .section-header {
+    flex-direction: column;
+  }
+
+  .sparkle {
+    display: none;
+  }
+
+  .refresh-button {
+    width: 100%;
+  }
+
+  .service-card {
+    gap: 12px;
+  }
+
+  .service-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
   }
 }

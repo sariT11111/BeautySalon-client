@@ -1,0 +1,143 @@
+<section class="staff-page">
+
+  <div class="page-header">
+    <div>
+      <p>OUR TEAM</p>
+      <h1>Professional Staff</h1>
+      <span>Manage your beauty professionals</span>
+    </div>
+
+    <div class="header-icon">✦</div>
+  </div>
+
+
+  <!-- Add Staff -->
+  <div class="staff-form-card">
+
+    <h2>Add Staff Member</h2>
+
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label>Full Name</label>
+        <input
+          type="text"
+          [(ngModel)]="newStaff.fullName"
+          placeholder="Enter full name">
+      </div>
+
+      <div class="form-group">
+        <label>Specialization</label>
+        <input
+          type="text"
+          [(ngModel)]="newStaff.specialization"
+          placeholder="e.g. Hair Stylist">
+      </div>
+
+      <div class="form-group">
+        <label>Phone</label>
+        <input
+          type="text"
+          [(ngModel)]="newStaff.phone"
+          placeholder="09XXXXXXXX">
+      </div>
+
+      <div class="form-group">
+        <label>Experience (Years)</label>
+        <input
+          type="number"
+          [(ngModel)]="newStaff.experience"
+          min="0">
+      </div>
+
+    </div>
+
+    <button class="add-btn" (click)="addStaff()">
+      + Add Staff Member
+    </button>
+
+    <div *ngIf="message" class="success-message">
+      {{ message }}
+    </div>
+
+    <div *ngIf="error" class="error-message">
+      {{ error }}
+    </div>
+
+  </div>
+
+
+  <!-- Staff List -->
+  <div class="list-header">
+    <div>
+      <p>TEAM MEMBERS</p>
+      <h2>Our Professionals</h2>
+    </div>
+
+    <span class="count">
+      {{ staff.length }} Staff
+    </span>
+  </div>
+
+
+  <div *ngIf="loading" class="loading">
+    Loading staff...
+  </div>
+
+
+  <div
+    *ngIf="!loading && staff.length === 0"
+    class="empty">
+
+    <div class="empty-icon">♡</div>
+
+    <h3>No staff members yet</h3>
+
+    <p>
+      Add your first professional using the form above.
+    </p>
+
+  </div>
+
+
+  <div
+    *ngIf="!loading && staff.length > 0"
+    class="staff-grid">
+
+    <div
+      class="staff-card"
+      *ngFor="let member of staff">
+
+      <div class="staff-avatar">
+        {{ member.fullName?.charAt(0)?.toUpperCase() }}
+      </div>
+
+      <div class="staff-info">
+
+        <h3>
+          {{ member.fullName }}
+        </h3>
+
+        <span class="specialization">
+          {{ member.specialization }}
+        </span>
+
+        <div class="staff-details">
+
+          <span>
+            📞{{ member.phone }}
+          </span>
+
+          <span>
+           ⭐{{ member.experience }} years experience
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

@@ -1,18 +1,57 @@
 <div class="app-shell">
 
   <header class="topbar">
-    <div class="brand">
-      <div class="brand-icon">✦</div>
-      <div>
+
+    <a routerLink="/" class="brand">
+
+      <div class="brand-icon">
+        ✦
+      </div>
+
+      <div class="brand-text">
         <strong>Beauty Salon</strong>
         <span>Management System</span>
       </div>
-    </div>
 
-    <nav>
-      <a routerLink="/customers">Customers</a>
-       <a routerLink="/services">Services</a>
-    </nav>
+    </a>
+
+    <nav class="main-nav">
+
+  
+
+  <a
+    routerLink="/"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }">
+    Home
+  </a>
+
+  <a
+    routerLink="/services"
+    routerLinkActive="active">
+    Services
+  </a>
+
+  <a
+    routerLink="/staff"
+    routerLinkActive="active">
+    Our Team
+  </a>
+
+  <a
+  routerLink="/register"
+  routerLinkActive="active">
+  Register
+</a>
+
+  <a
+    routerLink="/appointments"
+    routerLinkActive="active">
+    Book Appointment
+  </a>
+
+</nav>
+
   </header>
 
   <main>
