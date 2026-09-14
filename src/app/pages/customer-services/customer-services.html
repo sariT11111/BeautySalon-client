@@ -1,0 +1,54 @@
+<section class="services-page">
+
+  <div class="services-header">
+    <p class="section-label">OUR SERVICES</p>
+
+    <h1>Beauty & Wellness Services</h1>
+
+    <p>
+      Discover our professional beauty treatments and choose the perfect
+      service for your next appointment.
+    </p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="service-card" *ngFor="let service of services">
+
+      <img
+        [src]="getServiceImage(service.category)"
+        [alt]="service.name"
+      />
+
+      <div class="service-content">
+
+        <span class="category">
+          {{ service.category }}
+        </span>
+
+        <h2>{{ service.name }}</h2>
+
+        <div class="service-info">
+          <span>
+            {{ service.durationMinutes }} minutes
+          </span>
+
+          <strong>
+            {{ service.price }} ETB
+          </strong>
+        </div>
+
+        <a
+          routerLink="/appointments"
+          class="book-btn"
+        >
+          Book Appointment
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

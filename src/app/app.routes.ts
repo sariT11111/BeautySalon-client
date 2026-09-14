@@ -1,42 +1,47 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [
+import { Home } from './pages/home/home';
+import { Customers } from './pages/customers/customers';
+import { Services } from './pages/services/services';
+import { Staff } from './pages/staff/staff';
+import { Register } from './pages/register/register';
+import { Appointments } from './pages/appointments/appointments';
 
+export const routes: Routes = [
   {
     path: '',
+    component: Home
+  },
+
+  {
+    path: 'customer-services',
     loadComponent: () =>
-      import('./pages/home/home').then(m => m.Home)
+      import('./pages/customer-services/customer-services')
+        .then(m => m.CustomerServices)
   },
 
   {
     path: 'customers',
-    loadComponent: () =>
-      import('./pages/customers/customers').then(m => m.Customers)
+    component: Customers
   },
 
   {
     path: 'services',
-    loadComponent: () =>
-      import('./pages/services/services').then(m => m.Services)
+    component: Services
   },
 
   {
     path: 'staff',
-    loadComponent: () =>
-      import('./pages/staff/staff').then(m => m.Staff)
+    component: Staff
   },
 
   {
     path: 'register',
-    loadComponent: () =>
-      import('./pages/register/register').then(m => m.Register)
+    component: Register
   },
 
   {
     path: 'appointments',
-    loadComponent: () =>
-      import('./pages/appointments/appointments')
-        .then(m => m.Appointments)
+    component: Appointments
   }
-
 ];
