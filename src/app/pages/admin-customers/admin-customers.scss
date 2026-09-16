@@ -1,0 +1,278 @@
+.admin-customers {
+  min-height: calc(100vh - 80px);
+  padding: 45px 6%;
+  background: #fff8fc;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  margin-bottom: 35px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #c026a8;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.page-header h1 {
+  margin: 0 0 8px;
+  color: #382238;
+  font-size: 34px;
+}
+
+.subtitle {
+  margin: 0;
+  color: #766477;
+  font-size: 15px;
+}
+
+.back-button {
+  padding: 12px 20px;
+  border: 1px solid #e1c5dd;
+  border-radius: 9px;
+  background: white;
+  color: #8d347f;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background: #fff0fa;
+  border-color: #c026a8;
+}
+
+.loading {
+  padding: 50px;
+  background: white;
+  border: 1px solid #efd7eb;
+  border-radius: 16px;
+  color: #766477;
+  text-align: center;
+}
+
+.error-message {
+  padding: 15px;
+  border-radius: 10px;
+  background: #fff0f0;
+  color: #c62828;
+  text-align: center;
+}
+
+.customers-card {
+  background: white;
+  border: 1px solid #efd7eb;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 8px 25px rgba(80, 30, 80, 0.06);
+}
+
+.card-header {
+  margin-bottom: 18px;
+}
+
+.card-header h2 {
+  margin: 0 0 6px;
+  color: #382238;
+  font-size: 21px;
+}
+
+.card-header p {
+  margin: 0;
+  color: #766477;
+  font-size: 14px;
+}
+
+.customer-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.add-button {
+  display: inline-block;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 9px;
+  background: linear-gradient(90deg, #a82cc2, #d3268f);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(190, 40, 170, 0.2);
+}
+
+.add-form {
+  margin-bottom: 25px;
+  padding: 22px;
+  border: 1px solid #efd7eb;
+  border-radius: 12px;
+  background: #fff8fc;
+}
+
+.add-form h3 {
+  margin: 0 0 20px;
+  color: #382238;
+  font-size: 18px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  color: #382238;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 13px;
+  border: 1px solid #e3c9df;
+  border-radius: 8px;
+  background: white;
+  color: #382238;
+  font-size: 13px;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #c026a8;
+  box-shadow: 0 0 0 3px rgba(192, 38, 168, 0.1);
+}
+
+.save-button {
+  padding: 11px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #382238;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.save-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.empty-state {
+  padding: 35px;
+  border-radius: 12px;
+  background: #fff8fc;
+  color: #766477;
+  text-align: center;
+}
+
+.customers-table {
+  overflow: hidden;
+  border: 1px solid #efd7eb;
+  border-radius: 12px;
+}
+
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: 1.3fr 1.5fr 1.2fr 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 16px 18px;
+}
+
+.table-header {
+  background: #fff0fa;
+  color: #8d347f;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table-row {
+  border-top: 1px solid #f0e1ed;
+  color: #4d3a4d;
+  font-size: 14px;
+}
+
+.customer-name {
+  color: #382238;
+  font-weight: 600;
+}
+
+.appointment-count {
+  width: fit-content;
+  min-width: 30px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: #f5e8ff;
+  color: #8b3aa0;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+
+  .page-header {
+    flex-direction: column;
+  }
+
+  .customers-card {
+    padding: 18px;
+  }
+
+  .customer-actions {
+    justify-content: flex-start;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .table-header {
+    display: none;
+  }
+
+  .table-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 18px;
+  }
+}
+.card-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.add-button {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  background: #c026a8 !important;
+  color: white !important;
+  border: none !important;
+  padding: 12px 20px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  font-weight: bold !important;
+  z-index: 9999 !important;
+}

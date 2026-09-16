@@ -9,6 +9,8 @@ import { Appointments } from './pages/appointments/appointments';
 
 import { AdminLogin } from './pages/admin-login/admin-login';
 import { AdminDashboard } from './pages/admin-dashboard/admin-dashboard';
+
+import { AdminCustomers } from './pages/admin-customers/admin-customers';
 export const routes: Routes = [
   {
     path: '',
@@ -30,6 +32,11 @@ export const routes: Routes = [
 {
   path: 'admin/dashboard',
   component: AdminDashboard
+},
+
+{
+  path: 'admin/customers',
+  component: AdminCustomers
 },
   {
     path: 'customers',
