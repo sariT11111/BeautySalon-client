@@ -1,0 +1,140 @@
+.admin-login-page {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  background: #fff8fc;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 42px;
+  background: white;
+  border: 1px solid #efd7eb;
+  border-radius: 22px;
+  box-shadow: 0 15px 45px rgba(80, 30, 80, 0.12);
+  text-align: center;
+}
+
+.login-icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, #a82cc2, #d3268f);
+  color: white;
+
+  border-radius: 16px;
+  font-size: 26px;
+
+  box-shadow: 0 8px 20px rgba(190, 40, 170, 0.25);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #c026a8;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.login-card h1 {
+  margin: 0 0 10px;
+  color: #382238;
+  font-size: 32px;
+}
+
+.subtitle {
+  margin: 0 0 30px;
+  color: #766477;
+  font-size: 15px;
+}
+
+form {
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #382238;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 15px;
+
+  border: 1px solid #e3c9df;
+  border-radius: 9px;
+
+  background: #fff;
+  color: #382238;
+
+  font-size: 14px;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #c026a8;
+  box-shadow: 0 0 0 3px rgba(192, 38, 168, 0.1);
+}
+
+.error-message {
+  margin-bottom: 18px;
+  padding: 12px;
+
+  border-radius: 8px;
+
+  background: #fff0f0;
+  color: #c62828;
+
+  font-size: 13px;
+  text-align: center;
+}
+
+.login-button {
+  width: 100%;
+  border: none;
+  border-radius: 9px;
+
+  padding: 14px;
+
+  background: linear-gradient(90deg, #a82cc2, #d3268f);
+  color: white;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(190, 40, 170, 0.25);
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 25px;
+
+  color: #8a6387;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: #c026a8;
+}

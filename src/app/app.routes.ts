@@ -7,6 +7,8 @@ import { Staff } from './pages/staff/staff';
 import { Register } from './pages/register/register';
 import { Appointments } from './pages/appointments/appointments';
 
+import { AdminLogin } from './pages/admin-login/admin-login';
+import { AdminDashboard } from './pages/admin-dashboard/admin-dashboard';
 export const routes: Routes = [
   {
     path: '',
@@ -20,6 +22,15 @@ export const routes: Routes = [
         .then(m => m.CustomerServices)
   },
 
+  {
+  path: 'admin/login',
+  component: AdminLogin
+},
+
+{
+  path: 'admin/dashboard',
+  component: AdminDashboard
+},
   {
     path: 'customers',
     component: Customers

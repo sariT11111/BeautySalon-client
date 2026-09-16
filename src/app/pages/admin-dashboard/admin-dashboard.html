@@ -1,0 +1,117 @@
+<section class="admin-dashboard">
+
+  <header class="dashboard-header">
+    <div>
+      <p class="eyebrow">BEAUTY SALON</p>
+      <h1>Admin Dashboard</h1>
+      <p class="subtitle">
+        Manage your salon from one place.
+      </p>
+    </div>
+
+    <button
+      type="button"
+      class="logout-button"
+      (click)="logout()">
+      Logout
+    </button>
+  </header>
+
+  <div
+    *ngIf="loading"
+    class="loading">
+    Loading dashboard...
+  </div>
+
+  <div
+    *ngIf="!loading"
+    class="dashboard-content">
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <span class="stat-icon">👥</span>
+        <div>
+          <p>Customers</p>
+          <h2>{{ customers.length }}</h2>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-icon">💇</span>
+        <div>
+          <p>Services</p>
+          <h2>{{ services.length }}</h2>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-icon">👩‍💼</span>
+        <div>
+          <p>Staff</p>
+          <h2>{{ staff.length }}</h2>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-icon">📅</span>
+        <div>
+          <p>Appointments</p>
+          <h2>{{ appointments.length }}</h2>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="dashboard-section">
+
+      <div class="section-header">
+        <div>
+          <h2>Recent Appointments</h2>
+          <p>Latest bookings in the salon.</p>
+        </div>
+      </div>
+
+      <div
+        *ngIf="appointments.length === 0"
+        class="empty-state">
+
+        No appointments found.
+
+      </div>
+
+      <div
+        *ngIf="appointments.length > 0"
+        class="appointments-table">
+
+        <div class="table-header">
+          <span>Customer</span>
+          <span>Date</span>
+          <span>Status</span>
+        </div>
+
+        <div
+          class="table-row"
+          *ngFor="let appointment of appointments">
+
+          <span>
+            {{ appointment.customer?.fullName || 'Customer #' + appointment.customerId }}
+          </span>
+
+          <span>
+            {{ appointment.appointmentDate | date:'medium' }}
+          </span>
+
+          <span class="status">
+            {{ appointment.status }}
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
