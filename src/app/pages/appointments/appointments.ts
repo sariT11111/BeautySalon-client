@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
@@ -34,8 +34,10 @@ export class Appointments implements OnInit {
 
   message = '';
   error = '';
-
-  constructor(private api: ApiService) {}
+constructor(
+  private api: ApiService,
+  private cdr: ChangeDetectorRef
+) {}
 
   ngOnInit(): void {
     this.loadData();
@@ -46,7 +48,7 @@ export class Appointments implements OnInit {
     this.api.getCustomers().subscribe({
       next: (data) => {
   this.customers = data;
-
+this.cdr.detectChanges();
   // Automatically select the newly registered customer
   const savedCustomerId = localStorage.getItem('registeredCustomerId');
 
@@ -64,10 +66,11 @@ export class Appointments implements OnInit {
     });
 
     this.api.getServices().subscribe({
-      next: (data) => {
-        console.log('SERVICES:', data);
-        this.services = data;
-      },
+     next: (data) => {
+  console.log('SERVICES:', data);
+  this.services = data;
+  this.cdr.detectChanges();
+},
       error: (err) => {
         console.error('SERVICES ERROR:', err);
         this.error = 'Could not load services.';
@@ -75,10 +78,11 @@ export class Appointments implements OnInit {
     });
 
     this.api.getStaff().subscribe({
-      next: (data) => {
-        console.log('STAFF:', data);
-        this.staff = data;
-      },
+    next: (data) => {
+  console.log('STAFF:', data);
+  this.staff = data;
+  this.cdr.detectChanges();
+},
       error: (err) => {
         console.error('STAFF ERROR:', err);
         this.error = 'Could not load staff.';
@@ -86,13 +90,15 @@ export class Appointments implements OnInit {
     });
 
     this.api.getAppointments().subscribe({
-      next: (data) => {
-        console.log('APPOINTMENTS:', data);
-        this.appointments = data;
+    next: (data) => {
+  console.log('APPOINTMENTS:', data);
+  this.appointments = data;
 
-        // Stop loading
-        this.loading = false;
-      },
+  // Stop loading
+  this.loading = false;
+
+  this.cdr.detectChanges();
+},
       error: (err) => {
         console.error('APPOINTMENTS ERROR:', err);
         this.error = 'Could not load appointments.';
@@ -172,28 +178,31 @@ export class Appointments implements OnInit {
 
       next: (result) => {
 
-        console.log('BOOKING SUCCESS:', result);
+  console.log('BOOKING SUCCESS:', result);
 
-        this.booking = false;
+  this.booking = false;
 
-        this.message =
-          'Your appointment has been booked successfully!';
+  this.message =
+    'Your appointment has been booked successfully!';
 
-        this.appointments.push(result);
+  this.appointments.push(result);
 
-        this.resetForm();
-      },
+  this.resetForm();
 
-      error: (err) => {
+  this.cdr.detectChanges();
+},
+    error: (err) => {
 
-        console.error('BOOKING ERROR:', err);
+  console.error('BOOKING ERROR:', err);
 
-        this.booking = false;
+  this.booking = false;
 
-        this.error =
-          err?.error ||
-          'Could not book the appointment. Please try again.';
-      }
+  this.error =
+    err?.error ||
+    'Could not book the appointment. Please try again.';
+
+  this.cdr.detectChanges();
+}
     });
   }
 
