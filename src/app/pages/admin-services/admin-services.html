@@ -1,0 +1,161 @@
+<section class="admin-services">
+
+  <header class="page-header">
+
+    <div>
+      <p class="eyebrow">BEAUTY SALON</p>
+
+      <h1>Services</h1>
+
+      <p class="subtitle">
+        View and manage salon services.
+      </p>
+    </div>
+
+    <button
+      type="button"
+      class="back-button"
+      (click)="router.navigate(['/admin/dashboard'])">
+      ← Dashboard
+    </button>
+
+  </header>
+
+  <div *ngIf="loading" class="loading">
+    Loading services...
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div
+    *ngIf="!loading && !errorMessage"
+    class="services-card">
+
+    <div class="card-header">
+      <div>
+        <h2>All Services</h2>
+        <p>{{ services.length }} available services</p>
+      </div>
+
+     <button
+  type="button"
+  class="add-button"
+  (click)="showAddForm = !showAddForm">
+  {{ showAddForm ? 'Cancel' : '+ Add Service' }}
+</button>
+    </div>
+
+    <div *ngIf="showAddForm" class="add-form">
+
+  <h3>Add New Service</h3>
+
+  <div class="form-grid">
+
+    <div class="form-group">
+      <label for="serviceName">Service Name</label>
+      <input
+  id="serviceName"
+  type="text"
+  name="serviceName"
+  [(ngModel)]="newService.name"
+  placeholder="Enter service name">
+    </div>
+
+    <div class="form-group">
+      <label for="servicePrice">Price</label>
+        <input
+            id="servicePrice"
+            type="number"
+            name="servicePrice"
+            [(ngModel)]="newService.price"
+            placeholder="Enter price">
+    </div>
+
+    <div class="form-group">
+      <label for="serviceDuration">Duration (minutes)</label>
+      <input
+        id="serviceDuration"
+        type="number"
+        name="serviceDuration"
+        [(ngModel)]="newService.durationMinutes"
+        placeholder="Enter duration">
+    </div>
+
+    <div class="form-group">
+      <label for="serviceCategory">Category</label>
+      <input
+        id="serviceCategory"
+        type="text"
+        name="serviceCategory"
+        [(ngModel)]="newService.category"
+        placeholder="e.g. Hair, Makeup">
+    </div>
+
+  </div>
+
+  <button
+    type="button"
+    class="save-button"
+     (click)="addService()"
+  [disabled]="addingService">
+  {{ addingService ? 'Saving...' : 'Save Service' }}
+</button>
+
+</div>
+    <div
+      *ngIf="services.length === 0"
+      class="empty-state">
+      No services found.
+    </div>
+
+    <div
+      *ngIf="services.length > 0"
+      class="services-grid">
+
+<div *ngIf="successMessage" class="success-message">
+  {{ successMessage }}
+</div>
+
+<div *ngIf="errorMessage && !loading" class="error-message">
+  {{ errorMessage }}
+</div>
+
+      <div
+        class="service-card"
+        *ngFor="let service of services">
+
+        <div class="service-icon">
+          ✦
+        </div>
+
+        <div class="service-info">
+
+          <h3>{{ service.name }}</h3>
+
+          <p class="category">
+            {{ service.category || 'Beauty Service' }}
+          </p>
+
+          <div class="service-details">
+
+            <span>
+              💰 {{ service.price }} ETB
+            </span>
+
+            <span>
+              ⏱ {{ service.durationMinutes }} min
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

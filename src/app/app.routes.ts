@@ -11,6 +11,7 @@ import { AdminLogin } from './pages/admin-login/admin-login';
 import { AdminDashboard } from './pages/admin-dashboard/admin-dashboard';
 
 import { AdminCustomers } from './pages/admin-customers/admin-customers';
+import { AdminServices } from './pages/admin-services/admin-services';
 export const routes: Routes = [
   {
     path: '',
@@ -37,6 +38,10 @@ export const routes: Routes = [
 {
   path: 'admin/customers',
   component: AdminCustomers
+},
+{
+  path: 'admin/services',
+  component: AdminServices
 },
   {
     path: 'customers',
